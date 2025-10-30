@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Coração em Patas</title>
+  <link rel="stylesheet" href="{% static 'css/loginpet.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <div>
+        <h1>Bem-vindo de volta!</h1>
+
+        <form class="loginalternativo">
+          <button type="submit"><i class="fa-brands fa-google"></i> Entrar com o Google</button>
+          <button type="submit"><i class="fa-brands fa-x-twitter"></i> Entrar com o Twitter</button>
+          <hr>
+        </form>
+
+        <form class="login" method="post" action="">
+          {% csrf_token %}
+          <input type="email" id="email" name="email" placeholder="Email" required>
+          <input type="password" id="senha" name="senha" placeholder="Senha" required>
+          <p class="Esquecisenha">
+            <a href="{% url 'esquecisenha1' %}">Esqueci a senha</a>
+          </p>
+          <button type="submit">Entrar</button>
+        </form>
+
+        <p class="cadastrar">
+          Não tem conta? <a href="{% url 'cadastro' %}">Cadastre-se</a>
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

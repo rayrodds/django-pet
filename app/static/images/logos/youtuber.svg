@@ -1,0 +1,5 @@
+<!-- youtube.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M23 7c0-1.104-.896-2-2-2H3c-1.104 0-2 .896-2 2v10c0 1.104.896 2 2 2h18c1.104 0 2-.896 2-2V7z"></path>
+  <polygon points="10 15 15 12 10 9 10 15"></polygon>
+</svg>

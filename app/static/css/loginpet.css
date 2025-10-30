@@ -1,0 +1,224 @@
+/* Reset e base (mantém igual) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+body {
+  font-family: "Jockey One", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-image: url(../images/cachorro\ doido.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+}
+
+.container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  width: 550px;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+  padding: 15px;
+  margin: 12px auto;
+  float: right;
+  margin-right: 300px;
+}
+
+.login1 {
+  width: 550px;
+  height: 600px;
+}
+
+.login img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.card h1 {
+  margin: 10px 0 20px;
+  font-size: 22px;
+  color: #000000;
+  text-align: center;
+}
+
+.card p {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.card p a {
+  color: #6d35b3;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.card p a:hover {
+  text-decoration: underline;
+}
+
+/* Inputs e botões */
+.login input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.login input:focus {
+  border-color: #3d1949;
+  box-shadow: 0 0 5px rgba(141, 59, 169, 0.4);
+}
+
+.login button {
+  width: 100%;
+  padding: 12px;
+  background: #8d3ba9;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login button:hover {
+  background: #FFCB00;
+}
+
+.loginalternativo button:hover {
+  background: #FFCB00;
+}
+
+.Esquecisenha {
+  padding-right: 300px;
+  padding-bottom: 20px;
+}
+
+.loginalternativo {
+  margin-bottom: 50px;
+}
+
+.loginalternativo button {
+  font-size: medium;
+  font-family: "Jockey One", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 100%;
+  padding: 12px;
+  background: #EAEBFF;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: start;
+}
+
+.loginalternativo hr {
+  margin-top: 30px;
+}
+
+.digitaremail input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.digitaremail input:focus {
+  border-color: #3d1949;
+  box-shadow: 0 0 5px rgba(141, 59, 169, 0.4);
+}
+
+.container1 {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.card1 {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  width: 550px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  margin: 12px auto;
+  float: right;
+  margin-right: 300px;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 900px) {
+  body {
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+  }
+
+  .container,
+  .container1 {
+    justify-content: center;
+  }
+
+  .card,
+  .card1 {
+    float: none;
+    margin: 0 auto;
+    width: 90%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card h1 {
+    font-size: 20px;
+  }
+
+  .Esquecisenha {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  img {
+    width: 200px;
+  }
+}

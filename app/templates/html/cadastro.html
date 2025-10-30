@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coração em Patas - Cadastro</title>
+  <!-- alterado para usar {% static %} -->
+  <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Lado direito - Formulário -->
+    <div class="right-side">
+      <div class="form-box">
+        <!-- voltar para a home usando {% url 'home' %} -->
+        <a href="{% url 'home' %}" class="back-btn">←</a>
+
+        <div class="profile-icon">
+          <span>👤</span>
+        </div>
+        <!-- Etapas -->
+        <div class="steps">
+          <div class="step active">1</div>
+          <div class="step">2</div>
+          <div class="step">3</div>
+        </div>
+        <p class="step-text">Informe seus Dados</p>
+
+        <!-- Formulário -->
+        <form>
+          <input type="text" placeholder="Nome Completo" required>
+          <input type="text" placeholder="CPF ou CNPJ" required>
+          <input type="number" placeholder="Telefone" required>
+          <input type="date" placeholder="Data de Nascimento" required>
+          <select required>
+            <option value="">Gênero</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+          </select>
+          
+        <!-- avançar para a rota cadastro2 -->
+        <a href="{% url 'cadastro2' %}" class="btn" role="button">Avançar</a>
+
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

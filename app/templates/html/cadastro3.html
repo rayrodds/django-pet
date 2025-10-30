@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coração em Patas - Cadastro</title>
+  <link rel="stylesheet" href="{% static 'css/cadastro3.css' %}">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Lado direito - Formulário -->
+    <div class="right-side">
+      <div class="form-box">
+        <a href="{% url 'cadastro2' %}" class="back-btn">←</a>
+
+        <div class="profile-icon">
+          <span>👤</span>
+        </div>
+        <!-- Etapas -->
+        <div class="steps">
+          <div class="step active">1</div>
+          <div class="step">2</div>
+          <div class="step3">3</div>
+        </div>
+        <p class="step-text">Informe seus Dados</p>
+
+        <!-- Formulário -->
+        <form>
+          <input type="text" placeholder="Email" required>
+          <input type="password" placeholder="Senha" required>
+          <input type="password" placeholder="Confirmar senha" required>
+
+          <a href="{% url 'home' %}" class="btn" role="button">Concluir</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

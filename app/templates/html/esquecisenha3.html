@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha — nova senha</title>
+    <link rel="stylesheet" href="{% static 'css/esquecisenha.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+  <main class="container">
+   <section class="card">
+    <div class="tamanho">
+      <h1>Digite sua nova senha</h1>
+      <form class="login">
+        <input type="password" id="senha" name="senha" placeholder="Nova senha" required>
+        <a href="{% url 'login' %}" class="login-btn">Trocar senha</a>
+      </form>
+    </div>
+   </section>
+  </main>    
+</body>
+</html>

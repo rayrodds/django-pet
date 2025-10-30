@@ -1,0 +1,235 @@
+body {
+  font-family: 'Jockey One', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-image: url(../images/cachorro\ doido.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Lado esquerdo */
+.left-side {
+  flex: 1;
+  background-color: #9b4de3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.logo {
+  width: 150px;
+}
+
+.dog-img {
+  max-width: 90%;
+  align-self: center;
+}
+
+/* Lado direito */
+.right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  width: 380px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: center;
+  position: relative;
+  float: right;
+  margin-right: -800px; /* mantém layout original no PC */
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: #f1f1f1;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.profile-icon {
+  width: 70px;
+  height: 70px;
+  border: 3px solid #f5b400;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  color: #f5b400;
+  background: #fff;
+  margin-bottom: 15px;
+}
+
+.form-logo {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.step {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #ddd;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step2 {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #f5b400;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step.active {
+  background: #11CE00;
+}
+
+.step-text {
+  font-size: 14px;
+  color: #f5b400;
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input, select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.btn {
+  background: #9b4de3;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #7c3fc0;
+}
+
+a.btn {
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+a.btn:hover {
+  background: #FFCB00;
+}
+
+/* 🔹 Responsividade */
+@media (max-width: 1024px) {
+  .form-box {
+    margin-right: -400px;
+    width: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
+
+  .left-side {
+    display: none; /* oculta lado roxo no mobile */
+  }
+
+  .right-side {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-box {
+    float: none;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-box {
+    width: 90%;
+    padding: 20px;
+  }
+
+  input, select {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .btn {
+    font-size: 15px;
+  }
+
+  .profile-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+  }
+}
