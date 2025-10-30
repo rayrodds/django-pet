@@ -181,10 +181,10 @@ body {
 .informativo::after {
   content: "";
   position: absolute;
-  top: 0px;
-  right: 0;
-  width: 280px;
-  height: 280px;
+  top: -60px;
+  right: -52px;
+  width: 380px;
+  height: 380px;
   background-color: #FFCB00;
   border-radius: 50%;
   z-index: 0;
@@ -201,6 +201,7 @@ body {
   z-index: 2;
   width: 1000px;
   height: auto;
+  bottom: 100px;
 }
 
 .informativo .texto {
@@ -221,12 +222,26 @@ body {
   margin-bottom: 20px;
   position: relative;
   right: 70%;
+  bottom: 180px;
+  
   width: 650px;
+}
+
+.texto h2 {
+  font-size: 32px;
+  color: #573F94;
+  margin-bottom: 20px;
+  position: relative;
+  right: 60%;
+  font-size: 400%;
+  bottom: 180px;
+
+  
 }
 
 .informativo .texto .btn-opcao {
   position: relative;
-  right: 70%;
+  right: 60%;
   display: inline-block;
   margin-top: 10px;
   background-color: #573F94;
@@ -238,6 +253,7 @@ body {
   transition: 0.3s ease;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   text-align: center;
+  bottom: 180px;
 }
 
 .informativo .texto .btn-opcao:hover {
@@ -321,6 +337,8 @@ body {
   font-size: 44px;
   color: #4b2c6f;
   margin-bottom: 25px;
+  position: relative;
+  bottom: 100px;
 }
 
 .cards {

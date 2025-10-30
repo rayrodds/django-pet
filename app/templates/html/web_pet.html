@@ -44,6 +44,9 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{% url 'login1pet' %}">Entrar</a></li>
+            <li><a class="dropdown-item" href="{% url 'login1pet' %}">Cadastrar</a></li>
+            <li><a class="dropdown-item" href="{% url 'login1pet' %}">configurações</a></li>
+            
             <!-- se precisar de logout/criar rota, altere aqui -->
           </ul>
         </div>
@@ -57,26 +60,24 @@
     <h1>Coração em patas</h1>
   </div>
 
-  <!-- Chamada principal -->
-  <section class="chamada">
-    <h2>Procurando por um especialista para cuidar do seu Pet?<br> Conheça <span>Coração em Patas!</span></h2>
-  </section>
+
 
   <!-- Bloco informativo -->
   <section class="informativo">
-    <div class="imagem">
-      <img src="{% static 'images/imagem do gato.png' %}" alt="Gatos e cachorros">
-    </div>
-    <div class="texto">
-      <p>
-        Somos a primeira plataforma brasileira dedicada à saúde emocional, comportamental e oncológica dos pets.
-        Unimos veterinários, tutores e tecnologia para oferecer um cuidado mais humano, sensível e integrado —
-        especialmente em momentos delicados como o câncer.
-        Porque amar também é escutar o que seu pet não consegue dizer com palavras.
-      </p>
-      <a href="{% url 'login1pet' %}" class="btn-opcao">Saiba mais</a>
-    </div>
-  </section>
+  <div class="imagem">
+    <img src="{% static 'images/imagem do gato.png' %}" alt="Gatos e cachorros">
+  </div>
+  <div class="texto">
+    <h2>Quem somos</h2>
+    <p>
+      Somos a primeira plataforma brasileira dedicada à saúde emocional, comportamental e oncológica dos pets.
+      Unimos veterinários, tutores e tecnologia para oferecer um cuidado mais humano, sensível e integrado —
+      especialmente em momentos delicados como o câncer.
+      Porque amar também é escutar o que seu pet não consegue dizer com palavras.
+    </p>
+    <a href="{% url 'login1pet' %}" class="btn-opcao">Saiba mais</a>
+  </div>
+</section>
 
   <!-- Seção Parceiros -->
   <section class="parceiros" id="parceiros">
