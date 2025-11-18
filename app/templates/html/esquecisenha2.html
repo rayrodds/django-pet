@@ -13,9 +13,13 @@
    <section class="card">
     <div class="tamanho">
       <h1>Digite o código de 6 dígitos enviado por Email</h1>
-      <form class="login">
-        <input type="text" id="Codigo" name="Codigo" placeholder="Código" required>
-        <a href="{% url 'esquecisenha3' %}" class="login-btn">Nova senha</a>
+      <form class="login" method="post" action="">
+        {% csrf_token %}
+        {% if error %}
+          <p class="error">{{ error }}</p>
+        {% endif %}
+        <input type="text" id="codigo" name="codigo" placeholder="Código" required>
+        <button type="submit" class="login-btn">Nova senha</button>
       </form>
     </div>
    </section>

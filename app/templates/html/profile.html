@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Perfil</title>
+  <link rel="stylesheet" href="{% static 'css/configuracoes.css' %}">
+
+
+</head>
+<body>
+    <div class="bg-shapes">
+    <div class="yellow-left"></div>
+    <div class="purple-right"></div>
+    </div>
+
+    <section class="profile-card">
+    <h2>Seu perfil</h2>
+
+    <div class="avatar-wrap">
+    {% if profile.image %}
+      <img src="{{ profile.image.url }}" alt="Avatar" class="avatar">
+    {% else %}
+      <div class="avatar"></div>
+    {% endif %}
+
+    <!-- form to upload a new avatar directly from the profile card -->
+    <form id="avatarForm" method="post" action="{% url 'profile_edit' %}" enctype="multipart/form-data" style="display:inline-block;">
+      {% csrf_token %}
+      <input id="avatarInput" type="file" name="image" accept="image/*" style="display:none">
+      <button type="button" id="changePhotoBtn" class="change-photo-btn">Mudar foto</button>
+    </form>
+    </div>
+
+    <h3 class="username">{% if display_name %}{{ display_name }}{% elif user.is_authenticated %}{{ user.get_full_name|default:user.username }}{% else %}Usuário{% endif %}</h3>
+
+    <div class="buttons">
+      <button type="button">Privacidade</button>
+      <button type="button">Pagamentos</button>
+      <button type="button">Sobre a conta</button>
+      <button type="button" data-href="{% url 'profile_edit' %}" onclick="location.href=this.dataset.href">Editar perfil</button>
+      <button type="button" data-href="{% url 'logout' %}" onclick="location.href=this.dataset.href">Sair da conta</button>
+    </div>
+  </section>
+  <script>
+    (function(){
+      const btn = document.getElementById('changePhotoBtn');
+      const input = document.getElementById('avatarInput');
+      const form = document.getElementById('avatarForm');
+      if(!btn || !input || !form) return;
+      btn.addEventListener('click', function(){
+        input.click();
+      });
+      input.addEventListener('change', function(){
+        if(this.files && this.files[0]){
+          const reader = new FileReader();
+          reader.onload = function(e){
+            const img = document.querySelector('.avatar-wrap img');
+            if(img){ img.src = e.target.result }
+          }
+          reader.readAsDataURL(this.files[0]);
+          // submit the form to profile_edit which accepts image uploads
+          form.submit();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

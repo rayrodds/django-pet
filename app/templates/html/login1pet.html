@@ -23,6 +23,9 @@
 
         <form class="login" method="post" action="">
           {% csrf_token %}
+          {% if error %}
+            <p class="error">{{ error }}</p>
+          {% endif %}
           <input type="email" id="email" name="email" placeholder="Email" required>
           <input type="password" id="senha" name="senha" placeholder="Senha" required>
           <p class="Esquecisenha">

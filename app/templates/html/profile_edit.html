@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editar Perfil</title>
+  <link rel="stylesheet" href="{% static 'css/home_web.css' %}">
+  <style>
+    .profile-edit { max-width:700px; margin:40px auto; }
+    .profile-edit label { display:block; margin-top:8px }
+  </style>
+</head>
+<body>
+  <main class="profile-edit">
+    <h1>Editar Perfil</h1>
+    <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Salvar</button>
+      <a href="{% url 'profile' %}">Cancelar</a>
+    </form>
+  </main>
+</body>
+</html>

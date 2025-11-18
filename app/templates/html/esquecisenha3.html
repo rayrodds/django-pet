@@ -12,11 +12,15 @@
   <main class="container">
    <section class="card">
     <div class="tamanho">
-      <h1>Digite sua nova senha</h1>
-      <form class="login">
-        <input type="password" id="senha" name="senha" placeholder="Nova senha" required>
-        <a href="{% url 'login' %}" class="login-btn">Trocar senha</a>
-      </form>
+        <h1>Digite sua nova senha</h1>
+        <form class="login" method="post" action="">
+          {% csrf_token %}
+          {% if error %}
+            <p class="error">{{ error }}</p>
+          {% endif %}
+          {{ form.as_p }}
+          <button type="submit" class="login-btn">Trocar senha</button>
+        </form>
     </div>
    </section>
   </main>    

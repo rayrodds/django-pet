@@ -1,0 +1,207 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coração em Patas</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home_web.css' %}">
+</head>
+
+<body>
+
+  <!-- Cabeçalho / Banner -->
+  <header class="logo">
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Logo -->
+      <a href="{% url 'home' %}"><img src="{% static 'images/logooo.webp' %}" alt="Coração em Patas"></a>
+
+      <!-- Botão Hambúrguer -->
+      <button id="hamburger" class="hamburger d-md-none" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Menu -->
+      <nav id="navMenu" class="nav-menu d-md-flex align-items-center gap-3">
+        <a href="{% url 'download' %}" class="nav-link cor_branco">Download</a>
+        <a href="{% url 'parceiros' %}" class="nav-link cor_branco">Parceiros</a>
+        <a href="{% url 'ajuda' %}" class="nav-link cor_branco">Ajuda</a>
+        <a href="{% url 'sobre' %}" class="nav-link cor_branco">Quem somos nós</a>
+        <div class="dropdown">
+          {% if user.is_authenticated %}
+            <a class="nav-btn dropdown-toggle cor_branco" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-fill"></i> {{ display_name }}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'profile' %}">Meu perfil</a></li>
+              <li><a class="dropdown-item" href="{% url 'configuracoes' %}">Configurações</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+          {% else %}
+            <a class="nav-btn dropdown-toggle cor_branco" href="{% url 'login1pet' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-fill"></i> Entrar
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'login1pet' %}">Entrar</a></li>
+            </ul>
+          {% endif %}
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner Imagem -->
+  <div class="banner-imagem">
+    <img src="{% static 'images/gato e cachorro.png' %}" alt="Cachorro feliz">
+    <h1>Coração em patas</h1>
+  </div>
+
+  <!-- Chamada principal -->
+  <section class="chamada">
+    <h2>Procurando por um especialista para cuidar do seu Pet?<br> Conheça <span>Coração em Patas!</span></h2>
+  </section>
+
+  <!-- Bloco informativo -->
+  <section class="informativo">
+    <div class="imagem">
+      <img src="{% static 'images/imagem do gato.png' %}" alt="Gatos e cachorros">
+    </div>
+    <div class="texto">
+      <p>
+        Somos a primeira plataforma brasileira dedicada à saúde emocional, comportamental e oncológica dos pets.
+        Unimos veterinários, tutores e tecnologia para oferecer um cuidado mais humano, sensível e integrado —
+        especialmente em momentos delicados como o câncer.
+        Porque amar também é escutar o que seu pet não consegue dizer com palavras.
+      </p>
+      <a href="{% url 'login1pet' %}" class="btn-opcao">Saiba mais</a>
+    </div>
+  </section>
+
+  <!-- Seção Parceiros -->
+  <section class="parceiros" id="parceiros">
+    <h2>Nossos parceiros</h2>
+    <div class="cards">
+      <div class="card">
+        <p>Bicho feliz</p>
+        <img src="{% static 'images/coelho.png' %}" alt="Pet Shop Raposo">
+      </div>
+      <div class="card">
+        <p>Patas e cia</p>
+        <img src="{% static 'images/cachorro preto.png' %}" alt="Rayan Neto Oncologista">
+      </div>
+      <div class="card">
+        <p>Patas e cia</p>
+        <img src="{% static 'images/cachorro com celular.png' %}" alt="Pet shop: Casa do Pet">
+      </div>
+      <div class="card">
+        <p>outra coisa</p>
+        <img src="{% static 'images/cachorro com celular.png' %}" alt="Pet shop: Casa do Pet">
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Feedbacks -->
+  <section class="feedbacks">
+    <div class="feedback">
+      <a href="{% url 'login1pet' %}" class="btn-opcaoroxo">Dúvidas frequentes</a>
+      <div class="feedbackajuda">
+
+      <p><strong>Ainda tem tem duvidas sobre nosso serviço? seja respondido agora!</strong></p>
+      
+      </div>
+      <a href="{% url 'login1pet' %}" class="btn-opcaoroxoo">Ver mais +</a>
+
+      <div class="accordion-container">
+
+  <div class="accordion-card">
+    <div class="accordion-item">
+      <button class="accordion-header">Feedback dos clientes</button>
+      <div class="accordion-content">
+        <p>Tutores
+        “Depois da cirurgia, eu não sabia como lidar com o comportamento da Mel. 
+        A plataforma me ajudou a entender que ela precisava de mais silêncio e carinho.” — Júlia A., tutora da Mel
+
+        “O alerta da plataforma me mostrou que algo estava errado antes de qualquer 
+        sintoma físico. Isso salvou o Simba.” — Carlos N., tutor do Simba</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-card">
+    <div class="accordion-item">
+      <button class="accordion-header">Como uso o app?</button>
+      <div class="accordion-content">
+        <p>Nosso app é para tutores que acreditam que saúde vai além do físico. Se você quer oferecer um cuidado mais completo, com atenção ao bem-estar
+ emocional, comportamento e até suporte oncológico — aqui é o seu lugar. Também é feito para veterinários que desejam atuar de forma mais empática, 
+integrada e próxima das famílias.</p>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+  </section>
+
+  <!-- Seção Cuidados -->
+  <section class="cuidados">
+    <h2>Cuide do seu peludo com amor e tecnologia!</h2>
+    <div class="cuidados-opcoes">
+      <div class="opcao">
+        <img src="{% static 'images/veterinario.webp' %}" alt="Veterinário">
+        <a href="{% url 'login1pet' %}" class="btn-opcao">Veterinário</a>
+      </div>
+      <div class="opcao">
+        <img src="{% static 'images/tutor.webp' %}" alt="Tutor">
+        <a href="{% url 'login1pet' %}" class="btn-opcao">Tutor</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="rodape">
+    <div class="rodape-links">
+      <a href="#">Política de Privacidade</a> |
+      <a href="#">Suporte e Central de Ajuda</a>
+    </div>
+    <div class="rodape-redes">
+      <a href="https://instagram.com/seuperfil" class="rodape-redes-icon">
+        <img src="{% static 'images/logos/instagram.svg' %}" alt="Instagram">
+      </a>
+      <a href="https://instagram.com/seuperfil" class="rodape-redes-icon">
+        <img src="{% static 'images/logos/facebook.svg' %}" alt="facebook">
+      </a>
+      <a href="https://instagram.com/seuperfil" class="rodape-redes-icon">
+        <img src="{% static 'images/logos/linkedin.svg' %}" alt="linkedin">
+      </a>
+      <a href="https://instagram.com/seuperfil" class="rodape-redes-icon">
+        <img src="{% static 'images/logos/youtuber.svg' %}" alt="youtuber">
+      </a>
+      <a href="https://instagram.com/seuperfil" class="rodape-redes-icon">
+        <img src="{% static 'images/logos/tiktok.svg' %}" alt="tiktok">
+      </a>
+    </div>
+    <div class="rodape-logo">
+      <img src="{% static 'images/logooo.webp' %}" alt="Logo Coração em Patas">
+      <p>© Pet-mental – Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+</body>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'JavaScript/home.js' %}"></script>
+</html>

@@ -1,0 +1,165 @@
+/* Fundo da página */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #e7e7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Círculos decorativos */
+.bg-shapes .yellow-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 320px;
+    background: #ffcc00;
+    border-radius: 50%;
+    transform: translate(-40%, -20%);
+}
+
+.bg-shapes .purple-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: #9b4ce3;
+    border-radius: 50%;
+    transform: translate(40%, 20%);
+}
+
+/* Cartão principal */
+.profile-card {
+    width: 90%;
+    max-width: 420px;
+    background: white;
+    border-radius: 22px;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Título */
+.profile-card h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+}
+
+/* Avatar */
+.avatar {
+    width: 95px;
+    height: 95px;
+    background: #d8d8d8;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+/* ensure avatar images fill the circular area */
+.avatar img {
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Nome de usuário */
+.username {
+    margin: 5px 0 22px;
+    font-size: 1.1rem;
+}
+
+/* Botões */
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.buttons button {
+    background: #ffcc00;
+    border: none;
+    padding: 12px 5px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.buttons button:hover {
+    opacity: 0.9;
+}
+
+/* Remove underline for links or buttons inside the action area so all look the same */
+.buttons a,
+.buttons button {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* If anchors are used, make them visually consistent with buttons */
+.buttons a {
+    display: inline-block;
+    background: #ffcc00;
+    border-radius: 8px;
+    padding: 12px 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* change-photo button inside avatar area */
+.change-photo-btn {
+    margin-top: 10px;
+    background: #ffcc00;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.change-photo-btn:hover { opacity: 0.95 }
+
+.avatar-wrap { display: flex; flex-direction: column; align-items: center }
+.avatar { width:95px; height:95px }
+.avatar img { width:95px; height:95px }
+
+/* Responsividade extra */
+@media (max-width: 450px) {
+    .buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .bg-shapes .yellow-left {
+        width: 240px;
+        height: 240px;
+    }
+
+    .bg-shapes .purple-right {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+.logout-btn {
+    background: #ffcc00;
+    border: none;
+    padding: 12px 5px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+.logout-btn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+
+}

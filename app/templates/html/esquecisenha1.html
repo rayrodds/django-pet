@@ -14,9 +14,13 @@
     <section class="card">
       <div class="tamanho">
         <h1>Digite seu Email</h1>
-        <form class="login">
-          <input type="email" id="email" name="email" placeholder="Email" required>
-          <a href="{% url 'esquecisenha2' %}" class="login-btn">Avançar</a>
+        <form class="login" method="post" action="{% url 'password_reset' %}">
+          {% csrf_token %}
+          {% if error %}
+            <p class="error">{{ error }}</p>
+          {% endif %}
+          {{ form.email }}
+          <button type="submit" class="login-btn">Avançar</button>
         </form>
       </div>
     </section>

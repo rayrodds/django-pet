@@ -30,22 +30,23 @@
         <p class="step-text">Informe seus Dados</p>
 
         <!-- Formulário -->
-        <form>
-          <input type="text" placeholder="Nome Completo" required>
-          <input type="text" placeholder="CPF ou CNPJ" required>
-          <input type="number" placeholder="Telefone" required>
-          <input type="date" placeholder="Data de Nascimento" required>
-          <select required>
+        <form method="post" action="">
+          {% csrf_token %}
+          {% if error %}
+            <p class="error">{{ error }}</p>
+          {% endif %}
+          <input type="text" name="full_name" placeholder="Nome Completo" required>
+          <input type="text" name="cpf_cnpj" placeholder="CPF ou CNPJ" required>
+          <input type="text" name="phone" placeholder="Telefone" required>
+          <input type="date" name="birth_date" placeholder="Data de Nascimento" required>
+          <select name="gender" required>
             <option value="">Gênero</option>
             <option value="masculino">Masculino</option>
             <option value="feminino">Feminino</option>
             <option value="outro">Outro</option>
           </select>
-          
-        <!-- avançar para a rota cadastro2 -->
-        <a href="{% url 'cadastro2' %}" class="btn" role="button">Avançar</a>
 
-          
+          <button type="submit" class="btn">Avançar</button>
         </form>
       </div>
     </div>

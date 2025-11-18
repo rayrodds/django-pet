@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Perfil</title>
+  <link rel="stylesheet" href="{% static 'css/configuracoes.css' %}">
+
+
+</head>
+<body>
+    <div class="bg-shapes">
+    <div class="yellow-left"></div>
+    <div class="purple-right"></div>
+    </div>
+
+    <section class="profile-card">
+    <h2>Seu perfil</h2>
+
+    <div class="avatar"></div>
+
+    <h3 class="username">{% if display_name %}{{ display_name }}{% elif user.is_authenticated %}{{ user.get_full_name|default:user.username }}{% else %}Usuário{% endif %}</h3>
+
+    <div class="buttons">
+      <button type="button">Privacidade</button>
+      <button type="button">Pagamentos</button>
+      <button type="button">Sobre a conta</button>
+      <button type="button" onclick="window.location.href='{% url 'logout' %}'">Sair / Mudar conta</button>
+    </div>
+  </section>
+
+    <p><a href="{% url 'profile_edit' %}">Editar perfil</a> — <a href="{% url 'homelogada' %}">Voltar</a></p>
+</body>
+</html>

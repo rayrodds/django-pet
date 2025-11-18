@@ -28,12 +28,16 @@
         <p class="step-text">Informe seus Dados</p>
 
         <!-- Formulário -->
-        <form>
-          <input type="text" placeholder="Email" required>
-          <input type="password" placeholder="Senha" required>
-          <input type="password" placeholder="Confirmar senha" required>
+        <form method="post" action="">
+          {% csrf_token %}
+          {% if error %}
+            <p class="error">{{ error }}</p>
+          {% endif %}
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="password" name="senha" placeholder="Senha" required>
+          <input type="password" name="senha2" placeholder="Confirmar senha" required>
 
-          <a href="{% url 'home' %}" class="btn" role="button">Concluir</a>
+          <button type="submit" class="btn">Concluir</button>
         </form>
       </div>
     </div>
