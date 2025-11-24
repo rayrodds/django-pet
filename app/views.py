@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 # Create your views here.
 def inicio(request):
@@ -17,7 +18,16 @@ def sobre(request):
     return render(request, "html/sobre.html")
 
 def login1pet(request):
-    return render(request, "html/login1pet.html")
+    if request.method == 'GET':
+        return render(request, "html/login1pet.html")
+    
+    if request.method == 'POST':
+        login_post = request.POST.get("email")
+        password_post = request.POST.get("senha")
+
+    if not all([login_post, password_post]):
+        messages.error(request, 'Todos os campos são obrigatórios')
+        return redirect('login1pet')
 
 # NOVAS VIEWS (cadastro)
 def cadastro(request):

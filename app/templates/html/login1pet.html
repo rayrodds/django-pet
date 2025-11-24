@@ -6,11 +6,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Coração em Patas</title>
-  <link rel="stylesheet" href="{% static 'css/loginpet.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/loginpet.css' %}">
 </head>
 <body>
-  <main class="container">
+  <main class="container_login">
+    {% if messages %}
+    <div class="modal fade" id="modalMessage" tabindex="-1" aria-labelledby="modalMessageLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 color_azul" id="modalMessageLabel">Aviso</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        {% for message in messages %}
+                        <li class="list-group-item color_azul {{ message.tags }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger color_preto" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
     <section class="card">
       <div>
         <h1>Bem-vindo de volta!</h1>
@@ -21,10 +45,10 @@
           <hr>
         </form>
 
-        <form class="login" method="post" action="">
+        <form class="login" method="post">
           {% csrf_token %}
-          <input type="email" id="email" name="email" placeholder="Email" required>
-          <input type="password" id="senha" name="senha" placeholder="Senha" required>
+          <input type="email" id="email" name="email" placeholder="Email">
+          <input type="password" id="senha" name="senha" placeholder="Senha">
           <p class="Esquecisenha">
             <a href="{% url 'esquecisenha1' %}">Esqueci a senha</a>
           </p>
@@ -37,5 +61,17 @@
       </div>
     </section>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script>
+        {% if messages %}
+        document.addEventListener("DOMContentLoaded", function() {
+            let messageModal = new bootstrap.Modal(document.getElementById("modalMessage"), {
+                keyboard: true
+            })
+            messageModal.show()
+        })
+        {% endif %}
+    </script>
 </body>
 </html>
