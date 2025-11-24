@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from . import models
 
 # Create your views here.
 def inicio(request):
@@ -25,9 +26,25 @@ def login1pet(request):
         login_post = request.POST.get("email")
         password_post = request.POST.get("senha")
 
-    if not all([login_post, password_post]):
-        messages.error(request, 'Todos os campos são obrigatórios')
-        return redirect('login1pet')
+        if not all([login_post, password_post]):
+            messages.error(request, 'Todos os campos são obrigatórios')
+            return redirect('login1pet')
+
+        try:
+            tutor = models.Tutor.objects.get(email=login_post)
+            if tutor.senha == password_post:
+                request.session['tutor_id'] = tutor.id
+                request.session['nome_tutor'] = tutor.nome_tutor
+                request.session['tutor_logado'] = True
+
+                messages.success(request, f'Bem-vindo(a), {tutor.nome_tutor}!')
+                return redirect('home') 
+            else:
+                messages.error(request, 'Senha incorreta')
+                return redirect('login1pet')
+        except models.Tutor.DoesNotExist:
+            messages.error(request, 'Erro ao encontrar usuário')
+            return redirect('login1pet')
 
 # NOVAS VIEWS (cadastro)
 def cadastro(request):
