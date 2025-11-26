@@ -4,12 +4,12 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path("", views.inicio, name="home"),
+    path("", views.login1pet, name="login1pet"),
+    path("home/", views.inicio, name="home"),
     path("download/", views.download, name="download"),
     path("parceiros/", views.parceiros, name="parceiros"),
     path("ajuda/", views.ajuda, name="ajuda"),
     path("sobre/", views.sobre, name="sobre"),
-    path("login1pet/", views.login1pet, name="login1pet"),
     path("login/", views.login1pet, name="login"),  # rota usada pelos templates
 
     # rotas de cadastro
